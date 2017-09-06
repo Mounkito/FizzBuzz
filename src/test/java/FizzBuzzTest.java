@@ -31,4 +31,10 @@ public class FizzBuzzTest {
     public void should_return_buzz_when_the_given_number_is_ten() throws Exception {
         Assertions.assertThat(fizzBuzz.generate(10)).isEqualTo("Buzz");
     }
+
+    @Test
+    public void should_return_fizz_and_buzz_when_the_given_number_is_fifteen() throws Exception {
+        Assertions.assertThat(fizzBuzz.generate(15)).isEqualTo("FizzBuzz");
+
+    }
 }
