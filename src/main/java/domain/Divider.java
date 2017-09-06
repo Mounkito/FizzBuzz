@@ -12,11 +12,18 @@ public enum  Divider {
         this.word = word;
     }
 
-    public String getWord() {
-        return word;
+    private boolean isDividerOf(int number){
+        return number % this.number == 0;
     }
 
-    public int getNumber() {
-        return number;
+    public static String generateFizzBuzzWord(int number) {
+        StringBuilder word = new StringBuilder();
+        for (Divider divider : Divider.values()) {
+            if(divider.isDividerOf(number))
+                word.append(divider.word);
+        }
+        if(word.length() == 0)
+            return Integer.toString(number);
+        return word.toString();
     }
 }
