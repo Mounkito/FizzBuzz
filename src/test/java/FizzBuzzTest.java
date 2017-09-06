@@ -20,4 +20,10 @@ public class FizzBuzzTest {
         FizzBuzz fizzBuzz = new FizzBuzz();
         Assertions.assertThat(fizzBuzz.generate(5)).isEqualTo("Buzz");
     }
+
+    @Test
+    public void should_return_buzz_when_the_given_number_is_ten() throws Exception {
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        Assertions.assertThat(fizzBuzz.generate(10)).isEqualTo("Buzz");
+    }
 }
