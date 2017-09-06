@@ -7,6 +7,8 @@ public class FizzBuzz {
             if(isMultipleOf(number,divider.getNumber()))
                word.append(divider.getWord());
         }
+        if(word.length() == 0)
+            return Integer.toString(number);
         return word.toString();
     }
 

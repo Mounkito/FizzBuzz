@@ -35,7 +35,11 @@ public class FizzBuzzTest {
     @Parameters({"15","30","45","60"})
     public void should_return_fizz_and_buzz_when_the_given_number_is_a_multiple_three_and_five(int number) throws Exception {
         Assertions.assertThat(fizzBuzz.generate(number)).isEqualTo("FizzBuzz");
+    }
 
+    @Test
+    public void should_return_the_number() throws Exception {
+        Assertions.assertThat(fizzBuzz.generate(1)).isEqualTo("1");
     }
 
 }
