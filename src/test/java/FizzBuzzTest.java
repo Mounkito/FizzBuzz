@@ -37,4 +37,10 @@ public class FizzBuzzTest {
         Assertions.assertThat(fizzBuzz.generate(15)).isEqualTo("FizzBuzz");
 
     }
+
+    @Test
+    public void should_return_fizz_and_buzz_when_the_given_number_is_thirty() throws Exception {
+        Assertions.assertThat(fizzBuzz.generate(30)).isEqualTo("FizzBuzz");
+
+    }
 }
