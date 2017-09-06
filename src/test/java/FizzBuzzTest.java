@@ -14,4 +14,10 @@ public class FizzBuzzTest {
         FizzBuzz fizzBuzz = new FizzBuzz();
         Assertions.assertThat(fizzBuzz.generate(6)).isEqualTo("Fizz");
     }
+
+    @Test
+    public void should_return_buzz_when_the_given_number_is_five() throws Exception {
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        Assertions.assertThat(fizzBuzz.generate(5)).isEqualTo("Buzz");
+    }
 }
