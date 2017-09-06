@@ -38,8 +38,12 @@ public class FizzBuzzTest {
     }
 
     @Test
-    public void should_return_the_number() throws Exception {
+    public void should_return_the_number_1() throws Exception {
         Assertions.assertThat(fizzBuzz.generate(1)).isEqualTo("1");
+    }
+
+    public void should_return_the_number_4() throws Exception {
+        Assertions.assertThat(fizzBuzz.generate(4)).isEqualTo("4");
     }
 
 }
