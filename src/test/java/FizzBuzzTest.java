@@ -1,46 +1,63 @@
 import domain.FizzBuzz;
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+@RunWith(JUnitParamsRunner.class)
 public class FizzBuzzTest {
 
     private FizzBuzz fizzBuzz;
+
 
     @Before
     public void setUp() throws Exception {
         fizzBuzz = new FizzBuzz();
     }
 
-    @Test
-    public void should_return_fizz_when_the_given_number_is_three() throws Exception {
-        Assertions.assertThat(fizzBuzz.generate(3)).isEqualTo("Fizz");
+
+    private Object[] fizzParameters() {
+        return new Object[]{new Object[]{3}
+        , new Object[]{6}
+        , new Object[]{9}
+        , new Object[]{12}};
+    }
+
+    private Object[] buzzParameters() {
+        return new Object[]{new Object[]{5}
+        , new Object[]{10}
+        , new Object[]{20}
+        , new Object[]{25}};
+    }
+
+    private Object[] fizzbuzzParameters() {
+        return new Object[]{new Object[]{15}
+                , new Object[]{30}
+                , new Object[]{45}
+                , new Object[]{60}};
     }
 
     @Test
-    public void should_return_fizz_when_the_given_number_is_six() throws Exception {
-        Assertions.assertThat(fizzBuzz.generate(6)).isEqualTo("Fizz");
+    @Parameters(method = "fizzParameters")
+    public void should_return_fizz_when_the_given_number_is_three(int number) throws Exception {
+        Assertions.assertThat(fizzBuzz.generate(number)).isEqualTo("Fizz");
     }
+
 
     @Test
-    public void should_return_buzz_when_the_given_number_is_five() throws Exception {
-        Assertions.assertThat(fizzBuzz.generate(5)).isEqualTo("Buzz");
+    @Parameters(method = "buzzParameters")
+    public void should_return_buzz_when_the_given_number_is_five(int number) throws Exception {
+        Assertions.assertThat(fizzBuzz.generate(number)).isEqualTo("Buzz");
     }
+
 
     @Test
-    public void should_return_buzz_when_the_given_number_is_ten() throws Exception {
-        Assertions.assertThat(fizzBuzz.generate(10)).isEqualTo("Buzz");
-    }
-
-    @Test
-    public void should_return_fizz_and_buzz_when_the_given_number_is_fifteen() throws Exception {
-        Assertions.assertThat(fizzBuzz.generate(15)).isEqualTo("FizzBuzz");
+    @Parameters(method = "fizzbuzzParameters")
+    public void should_return_fizz_and_buzz_when_the_given_number_is_fifteen(int number) throws Exception {
+        Assertions.assertThat(fizzBuzz.generate(number)).isEqualTo("FizzBuzz");
 
     }
 
-    @Test
-    public void should_return_fizz_and_buzz_when_the_given_number_is_thirty() throws Exception {
-        Assertions.assertThat(fizzBuzz.generate(30)).isEqualTo("FizzBuzz");
-
-    }
 }
